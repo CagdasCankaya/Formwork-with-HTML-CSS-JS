@@ -1,0 +1,178 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: aquamarine;
+            }
+            #table{
+                line-height: 1.5px;
+                padding:auto;
+                margin:auto;
+                border:20px solid palegreen;
+                border-radius: 5px 10px 10px 5px;
+                box-shadow: 0 0 20px tomato, 0 0 40px cornsilk, 0 0 60px paleturquoise;
+            
+            }
+            caption{
+                color:midnightblue;
+                text-transform: capitalize;
+                text-indent: 4px;
+                padding-top: 5px;
+                padding-bottom: 20px;
+            }
+            input{
+                background-color: gold;
+                color:black;
+            }
+            select{
+                background-color: rgba(255, 8, 41, 0.881);
+                color:aliceblue;
+                text-shadow: 0 0 1px solid black;
+            }
+            textarea{
+                background-color: rgb(255, 193, 182);
+                color:aliceblue;
+            }
+            input[type="radio"]{
+                -webkit-appearance: none;
+                content:icon;
+                border:1.5px solid black;
+                display: inline-block;
+                width:10px;
+                height:10px;
+                border-radius: 50%;
+            }
+            input::placeholder, textarea::placeholder {
+                color: rgba(0, 31, 125, 0.779);
+}
+            
+        </style>
+        <script>
+            function loadFun(){
+                console.log("check problems");
+                var yes = document.getElementById("yesID");
+                var no  = document.getElementById("noID");
+                var male = document.getElementById("maleID");
+                var female = document.getElementById("femaleID");
+
+                yes.addEventListener('change',function(){
+                    no.checked=false;
+                });
+                no.addEventListener('change',function(){
+                    yes.checked=false;
+                });
+
+                male.addEventListener('change',function(){
+                    female.checked=false;
+                });
+                female.addEventListener('change',function(){
+                    male.checked=false;
+                });
+            }
+            console.log("done");
+        </script>
+    </head>
+
+    <body onload="loadFun();">
+        <form id="infoPage" name="form" onsubmit="return checkFun();" method="get" action="https://www.google.com">
+            <table border="2" id="table">
+                <caption align="top">Information Page</caption>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input type="text" id="nameID" name="name" placeholder="Enter your name:">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Surname:</td>
+                    <td>
+                        <input type="text" id="surnameID" name="surname" placeholder="Enter your surname:">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age:</td>
+                    <td>
+                        <select id="ageID">
+                            <optgroup label="child">
+                                <option value="0">0-3</option>
+                                <option value="1">4-6</option>
+                                <option value="2">7-12</option>
+                                <option value="3">13-17</option>
+                            </optgroup>
+
+                            <optgroup label="young">
+                                <option value="4">18-25</option>
+                                <option value="5">26-29</option>
+                            </optgroup>
+                            
+                            <optgroup label="adult">
+                                <option value="6">30-40</option>
+                                <option value="7">41-50</option>
+                                <option value="8">50+</option>
+                            </optgroup>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Gender:</td>
+                    <td>
+                        <label style="padding:1px; margin:1px;">Male:</label><input type="radio" id="maleID" name="male" value="male" onclick="loadFun();">
+                        <label style="margin-left:5px;">Female:</label><input type="radio" id="femaleID" name="female" value="female" onclick="loadFun();">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="email" id="emailID" name="email" placeholder="Enter your e-mail:">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <input type="text" id="addressID" name="address" placeholder="Enter your address:" size="60"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>Country &amp; City &amp; Zip code</td>
+                    <td>
+                        <input type="text" id="countryID" name="country" placeholder="Country:" size="25">
+                        <input type="text" id="cityID" name="city" placeholder="City:" size="30">
+                        <input type="text" id="zipCodeID" name="zipCode" placeholder="Zip Code:" size="20">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Comments:</td>
+                    <td>
+                        <textarea autofocus maxlength="300" rows="2" cols="100"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Do you like the work we do ?</td>
+                    <td>
+                        <label>Yes</label><input type="checkbox" id="yesID" name="yes" onchange="loadFun();">
+                        <label>No</label><input type="checkbox" id="noID" name="no" onchange="loadFun();">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>Confirm/Clear</p>
+                    </td>
+                    <td>
+                        <input type="submit" name="save" value="Save">
+                        <input type="reset" name="clear" value="Clear">
+                    </td>
+                    
+                    
+                </tr>
+            </table>
+        </body>
+    </form>
+</html>
